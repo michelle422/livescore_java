@@ -44,8 +44,8 @@ public class Main {
 		boolean end = false;
 		
 		try {
-			while (!end) {
-				System.out.print("Choices: 1 - Start Game; 2 - Update Game; 3 - Summary of Games\t");
+			while (choice != 4 || !end) {
+				System.out.print("Choices: 1 - Start Game; 2 - Update Game; 3 - Summary of Games; 4 - Exit\t");
 				choice = in.nextInt();
 				
 				switch (choice) {
@@ -63,7 +63,7 @@ public class Main {
 					case 3:
 						summaryGames(gamelist);
 						break;
-					default:
+					case 4:
 						end = true;
 				}
 			}
@@ -86,13 +86,13 @@ public class Main {
 	private static void updateGame(Game game, Scanner in) {
 		System.out.println();
 		System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
-				game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game");
+				game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game: ");
 		String key = in.nextLine();
 		
 		while (!key.equals("x")) {
 			game.getGameUpdate();
 			System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
-					game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game");
+					game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game: ");
 			key = in.nextLine();
 		}
 		
