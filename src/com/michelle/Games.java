@@ -22,5 +22,7 @@ public class Games {
 		for (Game game : games) {
 			System.out.println(game.getHomeTeam() + " " + game.getHomeScore() + " - " + game.getAwayScore() + " " + game.getAwayTeam());
 		}
+		
+		System.out.println();
 	}
 }

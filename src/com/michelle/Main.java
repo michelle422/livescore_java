@@ -51,6 +51,7 @@ public class Main {
 				switch (choice) {
 					case 1: 
 						game = startGame(gamelist);
+						System.out.println();
 						break;
 					case 2:
 						in = new Scanner(System.in);
@@ -64,23 +65,12 @@ public class Main {
 						break;
 					default:
 						end = true;
-	//					throw new IllegalArgumentException("Unexpected value: " + choice);
 				}
 			}
 			
 		} catch (InputMismatchException ex) {
 			System.out.println("Not a number");
 		}
-		
-//		for (String homeCountry : homeCountries) {
-//			Country country = new Country(homeCountry, true);
-//			countries.add(country);
-//		}
-//		
-//		for (String awayCountry : awayCountries) {
-//			Country country = new Country(awayCountry, true);
-//			countries.add(country);
-//		}
 		
 	}
 
@@ -94,18 +84,19 @@ public class Main {
 	}
 	
 	private static void updateGame(Game game, Scanner in) {
+		System.out.println();
+		System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
+				game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game");
+		String key = in.nextLine();
 		
-//		for (Game game : gamelist) {
+		while (!key.equals("x")) {
+			game.getGameUpdate();
 			System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
 					game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game");
-			String key = in.nextLine();
-			while (!key.equals("x")) {
-				game.getGameUpdate();
-				System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
-						game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game");
-				key = in.nextLine();
-			}
-//		}
+			key = in.nextLine();
+		}
+		
+		System.out.println();
 	}
 
 	private static Game startGame(List<Game> gamelist) {
