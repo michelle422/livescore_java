@@ -94,6 +94,12 @@ public class Main {
 			System.out.print("Game update: " + game.getHomeTeam() + " " + game.getHomeScore() + " - " + 
 					game.getAwayTeam() + " " + game.getAwayScore() + "\tPress 'x' to end the game: ");
 			key = in.nextLine();
+			if (key.equals(game.getHomeTeam())) {
+				System.out.println("Team: " + game.getHomeTeam() + "\tScore: " + game.getHomeScore());
+			}
+			if (key.equals(game.getAwayTeam())) {
+				System.out.println("Team: " + game.getAwayTeam() + "\tScore: " + game.getAwayScore());
+			}
 		}
 		
 		System.out.println();
